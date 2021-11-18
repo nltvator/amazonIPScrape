@@ -1,19 +1,16 @@
 import json
-from urllib.request import urlopen
+import requests
 import json
 import pandas as pd
 
 url = "https://ip-ranges.amazonaws.com/ip-ranges.json"
 
-response = urlopen(url)
+response = requests.get(url)
 
-json_data = json.loads(response.read())
+json_data = json.loads(response.text)
 
-print(json_data)
 prefix = json_data["prefixes"]
 
 df = pd.DataFrame.from_dict(prefix)
-
-print(df)
 
 df.to_csv("AmazonIPs.csv")
