@@ -1,6 +1,5 @@
 import json
 import requests
-import json
 import pandas as pd
 
 url = "https://ip-ranges.amazonaws.com/ip-ranges.json"
